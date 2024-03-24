@@ -1,0 +1,68 @@
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-color: #DCDCDC;
+    
+}
+h1, h2, h3 {
+    font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+h2 {
+    border-bottom: 2px solid #99FFFF;
+}
+ul li, ol li {
+    padding: 1em;
+    list-style-position: inside;
+    padding: 0.2 2em;
+}
+
+ul {
+    /* 要素の内側（境界線からコンテンツ本体の間)の領域。左のみを調整 */
+    padding-left: 0.5em;
+}
+
+ol.answers {
+    list-style: upper-alpha;
+    padding: 0 1em;
+}
+
+/*HTMLの答えを非表示にするCSS*/
+div#section-correct-answer {
+    display: none;
+}
+
+span#correct-answer {
+    font-weight: bold;
+    
+}
+
+ol.answers li:hover {
+    border: solid #cff7f7 0.1em;
+    background-color: #A7F1FF;
+    padding: 0.9em;
+    cursor: pointer;
+}
+
+#main {
+    padding: 0 1.5em;
+}
+
+div.section {
+    margin-top: 3em;
+};
+
+/*h1をセンターにする*/
+header{
+    height: 48px;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.line {
+    display: block;
+    text-align: center;
+    text-decoration: underline solid red;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="stylesheet" href="style.css">
+    <title>クイズ</title>
+</head>
+<body>
+
+    <header>
+        <h1>◆自分で考えたクイズサイト◆</h1>
+    </header>
+    
+    <H2>【問題一覧です。】「簡単なクイズで申し訳ございません。」<br>
+        <a href="https://www.youtube.com/@uverworldroyz1231/about"target="_blank">私のYouTubeチャンネルはこちらをクリック</a>
+    </H2>
+    <ul>
+        <li><a href="question1.html">UVERworldのボーカルの名前はなに？</a></li>
+        <li><a href="question2.html">北海道の北海道庁はどこ？</a></li>
+        <li><a href="question3.html">iPhoneのOSはなに？</a></li>
+        <li><a href="question4.html">デジタル化と自動化の違いはなに？</a></li>
+    </ul>
+
+    <p><span class="line">クイズサイト ホーム</span></p>
+    
+    <script>
+    function twoDigit(num) {
+        let ret;
+        if( num < 10 ) 
+            ret = "0" + num; 
+        else 
+            ret = num; 
+        return ret;
+        }
+    function showClock() {
+        let nowTime = new Date();
+        let nowYear = twoDigit( nowTime.getFullYear() );
+        let nowHour = twoDigit( nowTime.getHours() );
+        let nowMin  = twoDigit( nowTime.getMinutes() );
+        let nowSec  = twoDigit( nowTime.getSeconds() );
+        let msg = "現在日時：" + nowYear +"年" + nowHour + "時" + nowMin + "分" + nowSec + "秒";
+        document.getElementById("realtime").innerHTML = msg;
+        }
+        setInterval('showClock()',1000);
+    </script>
+
+    <p id="realtime"></p>
+
+    <button type=“button” onclick="location.href='https://masatuber-weather-app3.netlify.app/'">React天気アプリに戻る</button><br>
+    <script>
+        var cook;       //cookieデータを格納する変数
+        var cStart,cEnd;  //訪問回数部分を切取る為の位置を格納
+        var cnt;        //訪問回数を格納
+                //cookieが使えるか確認
+        if (navigator.cookieEnabled)
+        {
+        cook=document.cookie + ";";  //変数cookにcookieデータを入れる
+
+          //変数cStartにカウントデータの最初の位置を入れる
+        cStart = cook.indexOf("counts=",0);
+        
+          //データの有無で分岐
+        if (cStart == -1)
+          {
+            //データの無い場合は最初の訪問ということ
+            document.write("1回目の訪問です！");
+            
+            //cookieに訪問回数=1を書き込む
+            document.cookie="counts=1;";  
+          }
+          else
+          {
+            //カウントデータの最後の部分「;」の位置を取得
+            cEnd=cook.indexOf(";",cStart);
+            
+            //数値の部分だけを切り取る
+            cnt=cook.substring(cStart+7,cEnd);
+            
+            //数値に変換できない例外が出た時の処理
+            try
+            {
+              //取得した回数に+1して表示する
+              cnt=parseInt(cnt)+1;
+              document.write(cnt+"回目の訪問です！ありがとうございます。");
+              
+              //cookieに訪問回数を書き込む
+              document.cookie="counts="+cnt+";";
+            }
+            catch(e)
+            {
+              document.write("訪問回数の取得に失敗しました。");
+            }
+          }
+        }
+        else
+        {
+          //cookieが使用できない時の処理
+          document.write("cookieが使用できません。");
+        }
+        
+        </script>
+</body>
+</html>
